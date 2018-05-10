@@ -1,0 +1,35 @@
+h1,
+h2,
+a,
+input {
+    font-family: "Quicksand", sans-serif;
+}
+
+img {
+    height: 250px;
+    width: auto;
+}
+
+.welcomeContainer,
+.loginContainer {
+    margin: 50px;
+    text-align: center;
+}
+
+.inputFields {
+    width: 380px;
+    height: 50px;
+    font-size: 24px;
+}
+
+.member {
+    font-family: "Quicksand", sans-serif;
+    font-size: 22px;
+    color: dimgrey;
+}
+
+button {
+    width: auto;
+    height: 50px;
+    font-size: 20px;
+}
