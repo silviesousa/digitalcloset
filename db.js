@@ -57,3 +57,11 @@ exports.login = email => {
         [email]
     );
 };
+
+exports.getUserInfo = id => {
+    return db.query(
+        `SELECT id, first, last, image FROM users
+        WHERE users.id = $1`,
+        [id]
+    );
+};

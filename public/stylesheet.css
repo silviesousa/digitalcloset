@@ -33,3 +33,9 @@ button {
     height: 50px;
     font-size: 20px;
 }
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    font-family: "Quicksand", sans-serif;
+}

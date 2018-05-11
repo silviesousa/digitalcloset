@@ -4,6 +4,7 @@ import Logo from "./logo";
 import { HashRouter } from "react-router-dom";
 import { Login } from "./login";
 import { BrowserRouter, Route, Link } from "react-router-dom";
+import { Dropdown } from "./dropdown";
 //import reducer from "./reducer";
 //import { createStore, applyMiddleware } from "redux";
 //import reduxPromise from "redux-promise";
@@ -19,8 +20,7 @@ export default class App extends React.Component {
                 id: resp.data.id,
                 first: resp.data.first,
                 last: resp.data.last,
-                bio: resp.data.bio,
-                imageUrl: resp.data.imageUrl
+                image: resp.data.image
             });
         });
     }
@@ -33,6 +33,7 @@ export default class App extends React.Component {
                 <BrowserRouter>
                     <div>
                         <Logo />
+                        <Dropdown />
                     </div>
                 </BrowserRouter>
             </div>

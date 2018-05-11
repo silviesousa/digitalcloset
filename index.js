@@ -7,7 +7,7 @@ const cookieSessionMiddleware = cookieSession({
     maxAge: 1000 * 60 * 60 * 24 * 90
 });
 const hashPassword = require("./db.js").hashPassword;
-const { savePassword, login, checkPassword } = require("./db.js");
+const { savePassword, login, checkPassword, getUserInfo } = require("./db.js");
 const bodyParser = require("body-parser");
 const csurf = require("csurf");
 
@@ -133,6 +133,25 @@ app.post("/login", function(req, res) {
             );
         });
     }
+});
+
+app.get("/user", (req, res) => {
+    getUserInfo(req.session.userId.id).then(results => {
+        console.log(req.session.userId);
+        console.log(results.rows);
+        if (results.rows[0]) {
+            res.json({
+                success: true,
+                id: results.rows[0].id,
+                first: results.rows[0].first,
+                last: results.rows[0].last,
+                bio: results.rows[0].bio,
+                image: results.rows[0].image
+            });
+        } else {
+            res.json({ success: false });
+        }
+    });
 });
 
 app.get("/logout", (req, res) => {
