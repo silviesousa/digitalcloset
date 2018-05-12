@@ -39,3 +39,9 @@ button {
     flex-direction: column;
     font-family: "Quicksand", sans-serif;
 }
+
+.header {
+    display: flex;
+    flex-direction: row;
+    float: right;
+}

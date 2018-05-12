@@ -1,6 +1,6 @@
 import React, { Component } from "React";
 
-export class Dropdown extends Component {
+export class DropdownProfile extends Component {
     constructor() {
         super();
         this.state = {

@@ -4,7 +4,9 @@ import Logo from "./logo";
 import { HashRouter } from "react-router-dom";
 import { Login } from "./login";
 import { BrowserRouter, Route, Link } from "react-router-dom";
-import { Dropdown } from "./dropdown";
+import { DropdownProfile } from "./dropdownProfile";
+import { DropdownCloset } from "./dropdownCloset";
+import { DropdownOutfits } from "./dropdownOutfits";
 //import reducer from "./reducer";
 //import { createStore, applyMiddleware } from "redux";
 //import reduxPromise from "redux-promise";
@@ -31,9 +33,10 @@ export default class App extends React.Component {
         return (
             <div>
                 <BrowserRouter>
-                    <div>
-                        <Logo />
-                        <Dropdown />
+                    <div className="header">
+                        <DropdownProfile />
+                        <DropdownCloset />
+                        <DropdownOutfits />
                     </div>
                 </BrowserRouter>
             </div>
