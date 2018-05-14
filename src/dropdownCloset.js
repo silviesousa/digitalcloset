@@ -44,7 +44,9 @@ export class DropdownCloset extends Component {
 
     handleChangeTops(e) {
         console.log("click for tops");
-        this.setState({});
+        this.setState({
+            showTops: true
+        });
     }
     render() {
         return (

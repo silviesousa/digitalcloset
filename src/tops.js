@@ -1,6 +1,23 @@
 import React from "react";
 import Swipeable from "react-swipeable";
 
+const IMG_1 = `https://unsplash.it/342/249`;
+const IMG_2 = `https://unsplash.it/342/250`;
+const IMG_3 = `https://unsplash.it/342/251`;
+const IMG_4 = `https://unsplash.it/342/252`;
+const IMG_5 = `https://unsplash.it/342/253`;
+const IMAGES = [IMG_1, IMG_2, IMG_3, IMG_4, IMG_5];
+const IMG_WIDTH = "686px";
+const IMG_HEIGHT = "500px";
+
+const RIGHT = "-1";
+const LEFT = "+1";
+
+//centers arrows horizontally
+const buttonStyles = {
+    height: IMG_HEIGHT
+};
+
 export class Carousel extends React.Component {
     constructor(props, context) {
         super(props, context);
@@ -30,7 +47,6 @@ export class Carousel extends React.Component {
         };
         return (
             <div className="swipeContainer">
-                <div>Image: {imageIdx + 1}</div>
                 <Swipeable
                     className="swipe"
                     trackMouse
@@ -40,20 +56,18 @@ export class Carousel extends React.Component {
                     onSwipedRight={() => this.onSwiped(RIGHT)}
                 >
                     <div style={imageStyles}>
-                        <button
+                        <img
                             onClick={() => this.onSwiped(RIGHT)}
                             className="hollow float-left"
                             style={buttonStyles}
-                        >
-                            ⇦
-                        </button>
-                        <button
+                            src="/dripicons/SVG/arrow-thin-left.svg"
+                        />
+                        <img
                             onClick={() => this.onSwiped(LEFT)}
                             className="hollow float-right"
                             style={buttonStyles}
-                        >
-                            ⇨
-                        </button>
+                            src="/dripicons/SVG/arrow-thin-right.svg"
+                        />
                     </div>
                 </Swipeable>
             </div>

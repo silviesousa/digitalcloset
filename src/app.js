@@ -9,6 +9,7 @@ import { DropdownCloset } from "./dropdownCloset";
 import { DropdownOutfits } from "./dropdownOutfits";
 import { getCloset } from "./actions";
 import { connect } from "react-redux";
+import { Carousel } from "./tops";
 //import Upload from "./upload";
 //import { SwipeComponent } from "./carousel2";
 //import { Carousel } from "./carousel";
@@ -39,10 +40,15 @@ class App extends React.Component {
         return (
             <div>
                 <BrowserRouter>
-                    <div className="header">
-                        <DropdownProfile />
-                        <DropdownCloset />
-                        <DropdownOutfits />
+                    <div>
+                        <div className="header">
+                            <DropdownProfile />
+                            <DropdownCloset />
+                            <DropdownOutfits />
+                        </div>
+                        <div>
+                            <Carousel />
+                        </div>
                     </div>
                 </BrowserRouter>
             </div>

@@ -45,3 +45,42 @@ button {
     flex-direction: row;
     float: right;
 }
+
+.container {
+    margin: 0.5rem;
+    max-width: 400px;
+}
+
+.swipecontainer {
+    padding: 1em;
+}
+
+.swipe {
+    padding: 250px;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 600px;
+    height: 500px;
+}
+
+.hollow {
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+}
+
+.float-right {
+    width: 50px;
+    height: auto;
+    float: right !important;
+}
+
+.float-left {
+    width: 50px;
+    height: auto;
+    float: left !important;
+}
