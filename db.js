@@ -65,3 +65,17 @@ exports.getUserInfo = id => {
         [id]
     );
 };
+
+exports.uploadCloset = (imageGar, user_id, category) => {
+    return db.query(
+        `INSERT INTO garments (imageGar, user_id, category) VALUES ($1, $2, $3) RETURNING *`,
+        [imageGar, user_id, category]
+    );
+};
+
+exports.getCloset = user_id => {
+    return db.query(
+        `SELECT user_id, category, imageGar FROM garments WHERE user_id = $1`,
+        [user_id]
+    );
+};

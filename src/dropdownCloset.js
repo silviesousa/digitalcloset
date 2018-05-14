@@ -1,4 +1,7 @@
 import React, { Component } from "React";
+import { BrowserRouter, Route, Link } from "react-router-dom";
+import Upload from "./upload";
+import axios from "./axios";
 
 export class DropdownCloset extends Component {
     constructor() {
@@ -9,6 +12,7 @@ export class DropdownCloset extends Component {
 
         this.showMenu = this.showMenu.bind(this);
         this.closeMenu = this.closeMenu.bind(this);
+        this.makeUploaderVisible = this.makeUploaderVisible.bind(this);
     }
 
     showMenu(event) {
@@ -26,26 +30,43 @@ export class DropdownCloset extends Component {
         }
     }
 
+    makeUploaderVisible() {
+        this.setState({
+            uploaderShouldBeVisible: true
+        });
+    }
     render() {
         return (
             <div>
-                <div className="profile">
-                    <h2 onClick={this.showMenu}>Closet</h2>
+                <BrowserRouter>
+                    <div className="profile">
+                        <h2 onClick={this.showMenu}>Closet</h2>
 
-                    {this.state.showMenu ? (
-                        <div
-                            className="menu"
-                            ref={element => {
-                                this.dropdownMenu = element;
-                            }}
-                        >
-                            <a>Tops</a>
-                            <a>Bottoms</a>
-                            <a>Footwear</a>
-                            <a>Upload</a>
-                        </div>
-                    ) : null}
-                </div>
+                        {this.state.showMenu ? (
+                            <div
+                                className="menu"
+                                ref={element => {
+                                    this.dropdownMenu = element;
+                                }}
+                            >
+                                <a>Tops</a>
+                                <a>Bottoms</a>
+                                <a>Footwear</a>
+                                <a onClick={this.makeUploaderVisible}>Upload</a>
+                                {this.state.uploaderShouldBeVisible && (
+                                    <Upload
+                                        changeImage={img =>
+                                            this.setState({
+                                                imageGar: img,
+                                                uploaderShouldBeVisible: false
+                                            })
+                                        }
+                                    />
+                                )}
+                            </div>
+                        ) : null}
+                    </div>
+                </BrowserRouter>
             </div>
         );
     }

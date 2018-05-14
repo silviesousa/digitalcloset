@@ -1,4 +1,5 @@
 import React, { Component } from "React";
+import { BrowserRouter, Route, Link } from "react-router-dom";
 
 export class DropdownProfile extends Component {
     constructor() {
@@ -40,7 +41,7 @@ export class DropdownProfile extends Component {
                             }}
                         >
                             <a>Update Profile</a>
-                            <a>Log out</a>
+                            <Link to="/logout">Log out</Link>
                         </div>
                     ) : null}
                 </div>

@@ -7,17 +7,25 @@ const cookieSessionMiddleware = cookieSession({
     maxAge: 1000 * 60 * 60 * 24 * 90
 });
 const hashPassword = require("./db.js").hashPassword;
-const { savePassword, login, checkPassword, getUserInfo } = require("./db.js");
+const {
+    savePassword,
+    login,
+    checkPassword,
+    getUserInfo,
+    uploadCloset,
+    getCloset
+} = require("./db.js");
 const bodyParser = require("body-parser");
 const csurf = require("csurf");
 
-/*
 const multer = require("multer");
 const uidSafe = require("uid-safe");
 const path = require("path");
 const s3 = require("./s3");
 const config = require("./config");
 
+const server = require("http").Server(app);
+//const io = require("socket.io")(server, { origins: "localhost:8080" }); //add all origin s that should be included, like url name from heroku
 
 const diskStorage = multer.diskStorage({
     destination: function(req, file, callback) {
@@ -30,14 +38,12 @@ const diskStorage = multer.diskStorage({
     }
 });
 
-
 const uploader = multer({
     storage: diskStorage,
     limits: {
         fileSize: 2097152 //must change filesize!!!
     }
 });
-*/
 
 app.use(express.static(__dirname + "/public"));
 
@@ -45,12 +51,14 @@ app.use(compression());
 
 app.use(cookieSessionMiddleware);
 
+/*
 app.use(
     cookieSession({
         secret: "alyssa edwards",
         maxAge: 1000 * 60 * 60 * 24 * 14
     })
 );
+*/
 
 app.use(bodyParser.json());
 
@@ -145,13 +153,51 @@ app.get("/user", (req, res) => {
                 id: results.rows[0].id,
                 first: results.rows[0].first,
                 last: results.rows[0].last,
-                bio: results.rows[0].bio,
                 image: results.rows[0].image
             });
         } else {
             res.json({ success: false });
         }
     });
+});
+
+app.post("/upload", uploader.single("file"), s3.upload, function(req, res) {
+    if (req.file) {
+        console.log("success", req.file, req.body);
+        const img = config.s3Url + req.file.filename;
+        uploadCloset(img, req.session.userId.id, req.body.category).then(
+            img => {
+                res.json({
+                    success: true,
+                    imageGar: img
+                    //category: category
+                });
+            }
+        );
+    } else {
+        console.log("meh");
+    }
+});
+
+app.get("/closet", (req, res) => {
+    console.log(req.session.userId.id);
+    getCloset(req.session.userId.id)
+        .then(results => {
+            console.log("results for closet", results);
+            if (results.rows) {
+                res.json({
+                    success: true,
+                    getcloset: results.rows
+                });
+            } else {
+                res.json({
+                    success: false
+                });
+            }
+        })
+        .catch(error => {
+            console.log(error);
+        });
 });
 
 app.get("/logout", (req, res) => {
@@ -163,6 +209,6 @@ app.get("*", function(req, res) {
     res.sendFile(__dirname + "/index.html");
 });
 
-app.listen(8080, function() {
+server.listen(8080, function() {
     console.log("I'm listening.");
 });
