@@ -9,26 +9,3 @@ export async function getCloset(items) {
         closet: data.getcloset
     };
 }
-
-/*
-export function tops(item) {
-    return {
-        type: "TOPS",
-        tops: item
-    };
-}
-
-export function bottoms(item) {
-    return {
-        type: "BOTTOMS",
-        bottoms: item
-    };
-}
-
-export function footwear(item) {
-    return {
-        type: "FOOTWEAR",
-        footwear: item
-    };
-}
-*/

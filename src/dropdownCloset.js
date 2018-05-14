@@ -2,6 +2,9 @@ import React, { Component } from "React";
 import { BrowserRouter, Route, Link } from "react-router-dom";
 import Upload from "./upload";
 import axios from "./axios";
+import { Carousel } from "./tops";
+//import { Bottoms } from "./bottoms";
+//import { Footwear } from "./footwear";
 
 export class DropdownCloset extends Component {
     constructor() {
@@ -13,6 +16,9 @@ export class DropdownCloset extends Component {
         this.showMenu = this.showMenu.bind(this);
         this.closeMenu = this.closeMenu.bind(this);
         this.makeUploaderVisible = this.makeUploaderVisible.bind(this);
+        this.handleChangeTops = this.handleChangeTops.bind(this);
+        //this.handleChangeBottoms = this.handleChangeBottoms.bind(this);
+        //this.handleChangeFootwear = this.handleChangeFootwear.bind(this);
     }
 
     showMenu(event) {
@@ -35,6 +41,11 @@ export class DropdownCloset extends Component {
             uploaderShouldBeVisible: true
         });
     }
+
+    handleChangeTops(e) {
+        console.log("click for tops");
+        this.setState({});
+    }
     render() {
         return (
             <div>
@@ -49,9 +60,13 @@ export class DropdownCloset extends Component {
                                     this.dropdownMenu = element;
                                 }}
                             >
-                                <a>Tops</a>
-                                <a>Bottoms</a>
-                                <a>Footwear</a>
+                                <a onClick={this.handleChangeTops}>Tops</a>
+                                <a onClick={this.handleChangeBottoms}>
+                                    Bottoms
+                                </a>
+                                <a onClick={this.handleChangeFootwear}>
+                                    Footwear
+                                </a>
                                 <a onClick={this.makeUploaderVisible}>Upload</a>
                                 {this.state.uploaderShouldBeVisible && (
                                     <Upload
