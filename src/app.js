@@ -9,10 +9,10 @@ import { DropdownCloset } from "./dropdownCloset";
 import { DropdownOutfits } from "./dropdownOutfits";
 import { getCloset } from "./actions";
 import { connect } from "react-redux";
-import { Carousel } from "./tops";
+import CarouselTops from "./tops";
+import CarouselBottoms from "./bottoms";
 //import Upload from "./upload";
-//import { SwipeComponent } from "./carousel2";
-//import { Carousel } from "./carousel";
+
 import reducer from "./reducer";
 import { createStore, applyMiddleware } from "redux";
 import reduxPromise from "redux-promise";
@@ -47,7 +47,7 @@ class App extends React.Component {
                             <DropdownOutfits />
                         </div>
                         <div>
-                            <Carousel />
+                            <CarouselBottoms />
                         </div>
                     </div>
                 </BrowserRouter>

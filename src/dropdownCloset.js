@@ -2,9 +2,8 @@ import React, { Component } from "React";
 import { BrowserRouter, Route, Link } from "react-router-dom";
 import Upload from "./upload";
 import axios from "./axios";
-import { Carousel } from "./tops";
-//import { Bottoms } from "./bottoms";
-//import { Footwear } from "./footwear";
+import CarouselTops from "./tops";
+import CarouselBottoms from "./bottoms";
 
 export class DropdownCloset extends Component {
     constructor() {

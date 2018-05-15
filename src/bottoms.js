@@ -2,15 +2,6 @@ import React from "react";
 import Swipeable from "react-swipeable";
 import { connect } from "react-redux";
 
-/*
-const IMG_1 = `https://unsplash.it/342/249`;
-const IMG_2 = `https://unsplash.it/342/250`;
-const IMG_3 = `https://unsplash.it/342/251`;
-const IMG_4 = `https://unsplash.it/342/252`;
-const IMG_5 = `https://unsplash.it/342/253`;
-const IMAGES = [IMG_1, IMG_2, IMG_3, IMG_4, IMG_5];
-*/
-
 const IMG_WIDTH = "1000px";
 const IMG_HEIGHT = "700px";
 
@@ -22,7 +13,7 @@ const buttonStyles = {
     height: IMG_HEIGHT
 };
 
-class CarouselTops extends React.Component {
+class CarouselBottoms extends React.Component {
     constructor(props, context) {
         super(props, context);
         this.state = { imageIdx: 0 };
@@ -86,21 +77,8 @@ class CarouselTops extends React.Component {
 
 const mapStateToProps = state => {
     return {
-        items: state.tops
+        items: state.bottoms
     };
 };
 
-export default connect(mapStateToProps)(CarouselTops);
-
-/*
-not necessary
-function preload(...images) {
-    return images.reduce((acc, img) => {
-        let newImage = new Image();
-        newImage.src = img;
-        acc.push(newImage);
-        return acc;
-    }, []);
-}
-preload.apply(null, IMAGES);
-*/
+export default connect(mapStateToProps)(CarouselBottoms);
