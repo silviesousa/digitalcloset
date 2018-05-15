@@ -4,7 +4,7 @@ import Upload from "./upload";
 import axios from "./axios";
 import CarouselTops from "./tops";
 import CarouselBottoms from "./bottoms";
-//import CarouselFootwear from "./footwear";
+import CarouselFootwear from "./footwear";
 import { getCloset } from "./actions";
 
 export class DropdownCloset extends Component {
@@ -41,9 +41,12 @@ export class DropdownCloset extends Component {
 
     render() {
         return (
-            <div className="profile">
-                <h2 onClick={this.showMenu}>Closet</h2>
-
+            <div className="closet">
+                <img
+                    className="icons"
+                    src="/150-outlined-icons/SVG/upload_folder.svg"
+                    onClick={this.showMenu}
+                />
                 {this.state.showMenu ? (
                     <div
                         className="menu"
@@ -53,7 +56,7 @@ export class DropdownCloset extends Component {
                     >
                         <Link to="/tops">Tops</Link>
                         <Link to="/bottoms">Bottoms</Link>
-                        <a>Footwear</a>
+                        <Link to="footwear">Footwear</Link>
                         <a onClick={this.makeUploaderVisible}>Upload</a>
                         {this.state.uploaderShouldBeVisible && (
                             <Upload

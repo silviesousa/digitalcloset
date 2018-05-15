@@ -10,6 +10,12 @@ img {
     width: auto;
 }
 
+.logo {
+    float: left;
+    height: auto;
+    width: 120px;
+}
+
 .welcomeContainer,
 .loginContainer {
     margin: 50px;
@@ -34,6 +40,18 @@ button {
     font-size: 20px;
 }
 
+.icons {
+    height: 30px;
+    width: auto;
+}
+
+.profile,
+.closet,
+.outfits {
+    margin: 5px;
+    padding: 5px;
+}
+
 .menu {
     display: flex;
     flex-direction: column;
@@ -56,8 +74,7 @@ button {
 }
 
 .swipe {
-    padding: 250px;
-    position: absolute;
+    padding-top: 150px;
     margin: auto;
     top: 0;
     right: 0;
@@ -83,4 +100,22 @@ button {
     width: 50px;
     height: auto;
     float: left !important;
+}
+
+#CarouselTops {
+    width: auto;
+    height: 300px;
+}
+
+#CarouselBottoms {
+    padding-top: 350px;
+    width: auto;
+    height: 500px;
+}
+
+#CarouselFootwear {
+    padding-top: 200px;
+    width: auto;
+    height: 100px;
+    bottom: 0;
 }

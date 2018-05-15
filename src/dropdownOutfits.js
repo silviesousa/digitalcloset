@@ -1,5 +1,6 @@
 import React, { Component } from "React";
 import { BrowserRouter, Route, Link } from "react-router-dom";
+import { Create } from "./createOutfit";
 
 export class DropdownOutfits extends Component {
     constructor() {
@@ -30,8 +31,12 @@ export class DropdownOutfits extends Component {
     render() {
         return (
             <div>
-                <div className="profile">
-                    <h2 onClick={this.showMenu}>Outfits</h2>
+                <div className="outfits">
+                    <img
+                        className="icons"
+                        src="/150-outlined-icons/SVG/tshirt.svg"
+                        onClick={this.showMenu}
+                    />
 
                     {this.state.showMenu ? (
                         <div

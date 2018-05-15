@@ -11,16 +11,8 @@ const IMG_5 = `https://unsplash.it/342/253`;
 const IMAGES = [IMG_1, IMG_2, IMG_3, IMG_4, IMG_5];
 */
 
-const IMG_WIDTH = "1000px";
-const IMG_HEIGHT = "700px";
-
 const RIGHT = "-1";
 const LEFT = "+1";
-
-//centers arrows horizontally
-const buttonStyles = {
-    height: IMG_HEIGHT
-};
 
 class CarouselTops extends React.Component {
     constructor(props, context) {
@@ -49,10 +41,14 @@ class CarouselTops extends React.Component {
 
         console.log(this.props);
         const { imageIdx = 0 } = this.state;
-        const imageStyles = {
-            width: IMG_WIDTH,
-            height: IMG_HEIGHT,
+        let imageStyles = {
+            width: this.props.width,
+            height: this.props.height,
             backgroundImage: `url(${this.props.items[imageIdx].imagegar})`
+        };
+        //centers arrows horizontally
+        const buttonStyles = {
+            height: this.props.height
         };
         return (
             <div className="swipeContainer">

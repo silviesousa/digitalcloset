@@ -12,8 +12,8 @@ import { DropdownOutfits } from "./dropdownOutfits";
 import Upload from "./upload";
 import CarouselTops from "./tops";
 import CarouselBottoms from "./bottoms";
-import { Create } from "./createoutfits";
-//import CarouselFootwear from "./footwear";
+import CarouselFootwear from "./footwear";
+import { Create } from "./createOutfit";
 
 import reducer from "./reducer";
 import { createStore, applyMiddleware } from "redux";
@@ -43,6 +43,9 @@ class App extends React.Component {
             <div>
                 <BrowserRouter>
                     <div>
+                        <div className="logo">
+                            <Logo />
+                        </div>
                         <div className="header">
                             <DropdownProfile />
                             <DropdownCloset />
@@ -52,12 +55,37 @@ class App extends React.Component {
                             <Route
                                 exact
                                 path="/tops"
-                                component={CarouselTops}
+                                render={() => (
+                                    <CarouselTops
+                                        width={"1000px"}
+                                        height={"700px"}
+                                    />
+                                )}
                             />
                             <Route
                                 exact
                                 path="/bottoms"
-                                component={CarouselBottoms}
+                                render={() => (
+                                    <CarouselBottoms
+                                        width={"1000px"}
+                                        height={"700px"}
+                                    />
+                                )}
+                            />
+                            <Route
+                                exact
+                                path="/footwear"
+                                render={() => (
+                                    <CarouselFootwear
+                                        width={"1000px"}
+                                        height={"700px"}
+                                    />
+                                )}
+                            />
+                            <Route
+                                exact
+                                path="/createoutfit"
+                                component={Create}
                             />
                         </div>
                     </div>

@@ -31,8 +31,11 @@ export class DropdownProfile extends Component {
         return (
             <div>
                 <div className="profile">
-                    <h2 onClick={this.showMenu}>Profile</h2>
-
+                    <img
+                        className="icons"
+                        src="/150-outlined-icons/SVG/setting_2.svg"
+                        onClick={this.showMenu}
+                    />
                     {this.state.showMenu ? (
                         <div
                             className="menu"
