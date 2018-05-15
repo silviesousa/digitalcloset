@@ -1,9 +1,11 @@
 import React, { Component } from "React";
-import { BrowserRouter, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Upload from "./upload";
 import axios from "./axios";
 import CarouselTops from "./tops";
 import CarouselBottoms from "./bottoms";
+//import CarouselFootwear from "./footwear";
+import { getCloset } from "./actions";
 
 export class DropdownCloset extends Component {
     constructor() {
@@ -11,13 +13,9 @@ export class DropdownCloset extends Component {
         this.state = {
             showMenu: false
         };
-
         this.showMenu = this.showMenu.bind(this);
         this.closeMenu = this.closeMenu.bind(this);
         this.makeUploaderVisible = this.makeUploaderVisible.bind(this);
-        this.handleChangeTops = this.handleChangeTops.bind(this);
-        //this.handleChangeBottoms = this.handleChangeBottoms.bind(this);
-        //this.handleChangeFootwear = this.handleChangeFootwear.bind(this);
     }
 
     showMenu(event) {
@@ -41,48 +39,34 @@ export class DropdownCloset extends Component {
         });
     }
 
-    handleChangeTops(e) {
-        console.log("click for tops");
-        this.setState({
-            showTops: true
-        });
-    }
     render() {
         return (
-            <div>
-                <BrowserRouter>
-                    <div className="profile">
-                        <h2 onClick={this.showMenu}>Closet</h2>
+            <div className="profile">
+                <h2 onClick={this.showMenu}>Closet</h2>
 
-                        {this.state.showMenu ? (
-                            <div
-                                className="menu"
-                                ref={element => {
-                                    this.dropdownMenu = element;
-                                }}
-                            >
-                                <a onClick={this.handleChangeTops}>Tops</a>
-                                <a onClick={this.handleChangeBottoms}>
-                                    Bottoms
-                                </a>
-                                <a onClick={this.handleChangeFootwear}>
-                                    Footwear
-                                </a>
-                                <a onClick={this.makeUploaderVisible}>Upload</a>
-                                {this.state.uploaderShouldBeVisible && (
-                                    <Upload
-                                        changeImage={img =>
-                                            this.setState({
-                                                imageGar: img,
-                                                uploaderShouldBeVisible: false
-                                            })
-                                        }
-                                    />
-                                )}
-                            </div>
-                        ) : null}
+                {this.state.showMenu ? (
+                    <div
+                        className="menu"
+                        ref={element => {
+                            this.dropdownMenu = element;
+                        }}
+                    >
+                        <Link to="/tops">Tops</Link>
+                        <Link to="/bottoms">Bottoms</Link>
+                        <a>Footwear</a>
+                        <a onClick={this.makeUploaderVisible}>Upload</a>
+                        {this.state.uploaderShouldBeVisible && (
+                            <Upload
+                                changeImage={img =>
+                                    this.setState({
+                                        imageGar: img,
+                                        uploaderShouldBeVisible: false
+                                    })
+                                }
+                            />
+                        )}
                     </div>
-                </BrowserRouter>
+                ) : null}
             </div>
         );
     }

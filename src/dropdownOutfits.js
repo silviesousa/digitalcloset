@@ -1,4 +1,5 @@
 import React, { Component } from "React";
+import { BrowserRouter, Route, Link } from "react-router-dom";
 
 export class DropdownOutfits extends Component {
     constructor() {
@@ -39,8 +40,8 @@ export class DropdownOutfits extends Component {
                                 this.dropdownMenu = element;
                             }}
                         >
-                            <a>Create Outfits</a>
-                            <a>My Outfits</a>
+                            <Link to="/createoutfit">Create Outfit</Link>
+                            <Link to="/myoutfits">My Outfits</Link>
                         </div>
                     ) : null}
                 </div>

@@ -1,17 +1,19 @@
 import React from "react";
 import axios from "./axios";
-import Logo from "./logo";
 import { HashRouter } from "react-router-dom";
-import { Login } from "./login";
 import { BrowserRouter, Route, Link } from "react-router-dom";
+import { getCloset } from "./actions";
+import { connect } from "react-redux";
+import Logo from "./logo";
+import { Login } from "./login";
 import { DropdownProfile } from "./dropdownProfile";
 import { DropdownCloset } from "./dropdownCloset";
 import { DropdownOutfits } from "./dropdownOutfits";
-import { getCloset } from "./actions";
-import { connect } from "react-redux";
+import Upload from "./upload";
 import CarouselTops from "./tops";
 import CarouselBottoms from "./bottoms";
-//import Upload from "./upload";
+import { Create } from "./createoutfits";
+//import CarouselFootwear from "./footwear";
 
 import reducer from "./reducer";
 import { createStore, applyMiddleware } from "redux";
@@ -46,8 +48,17 @@ class App extends React.Component {
                             <DropdownCloset />
                             <DropdownOutfits />
                         </div>
-                        <div>
-                            <CarouselBottoms />
+                        <div className="routes">
+                            <Route
+                                exact
+                                path="/tops"
+                                component={CarouselTops}
+                            />
+                            <Route
+                                exact
+                                path="/bottoms"
+                                component={CarouselBottoms}
+                            />
                         </div>
                     </div>
                 </BrowserRouter>
