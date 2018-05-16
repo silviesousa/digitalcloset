@@ -1,6 +1,7 @@
 import React from "react";
 import Swipeable from "react-swipeable";
 import { connect } from "react-redux";
+import { garmentIdx } from "./actions";
 
 const RIGHT = "-1";
 const LEFT = "+1";
@@ -22,6 +23,7 @@ class CarouselFootwear extends React.Component {
         } else {
             newIdx = adjustedIdx;
         }
+        this.props.dispatch(garmentIdx(newIdx, "footwear"));
         this.setState({ imageIdx: newIdx });
     }
 

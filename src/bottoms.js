@@ -1,6 +1,7 @@
 import React from "react";
 import Swipeable from "react-swipeable";
 import { connect } from "react-redux";
+import { garmentIdx } from "./actions";
 
 /*
 const IMG_WIDTH = "1000px";
@@ -27,6 +28,7 @@ class CarouselBottoms extends React.Component {
         } else {
             newIdx = adjustedIdx;
         }
+        this.props.dispatch(garmentIdx(newIdx, "bottoms"));
         this.setState({ imageIdx: newIdx });
     }
 

@@ -1,6 +1,7 @@
 import React, { Component } from "React";
 import { BrowserRouter, Route, Link } from "react-router-dom";
-import { Create } from "./createOutfit";
+import Create from "./createOutfit";
+import { MyOutfits } from "./myOutfits";
 
 export class DropdownOutfits extends Component {
     constructor() {

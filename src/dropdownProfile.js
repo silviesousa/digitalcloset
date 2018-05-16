@@ -1,5 +1,6 @@
 import React, { Component } from "React";
 import { BrowserRouter, Route, Link } from "react-router-dom";
+import UpdateProfile from "./updateProfile";
 
 export class DropdownProfile extends Component {
     constructor() {
@@ -43,7 +44,7 @@ export class DropdownProfile extends Component {
                                 this.dropdownMenu = element;
                             }}
                         >
-                            <a>Update Profile</a>
+                            <Link to="/updateprofile">Update Profile</Link>
                             <Link to="/logout">Log out</Link>
                         </div>
                     ) : null}

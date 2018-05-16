@@ -13,7 +13,8 @@ const {
     checkPassword,
     getUserInfo,
     uploadCloset,
-    getCloset
+    getCloset,
+    saveOutfit
 } = require("./db.js");
 const bodyParser = require("body-parser");
 const csurf = require("csurf");
@@ -25,7 +26,6 @@ const s3 = require("./s3");
 const config = require("./config");
 
 const server = require("http").Server(app);
-//const io = require("socket.io")(server, { origins: "localhost:8080" }); //add all origin s that should be included, like url name from heroku
 
 const diskStorage = multer.diskStorage({
     destination: function(req, file, callback) {
@@ -180,10 +180,8 @@ app.post("/upload", uploader.single("file"), s3.upload, function(req, res) {
 });
 
 app.get("/closet", (req, res) => {
-    console.log(req.session.userId.id);
     getCloset(req.session.userId.id)
         .then(results => {
-            console.log("results for closet", results);
             if (results.rows) {
                 res.json({
                     success: true,
@@ -199,6 +197,37 @@ app.get("/closet", (req, res) => {
             console.log(error);
         });
 });
+
+app.post("/createoutfit", (req, res) => {
+    console.log(
+        "post route for /createoutfit",
+        req.session.userId.id,
+        req.body
+    );
+    saveOutfit(
+        req.session.userId.id,
+        req.body.topsIdx,
+        req.body.bottomsIdx,
+        req.body.footwearIdx
+    )
+        .then(results => {
+            if (results.rows) {
+                res.json({
+                    success: true,
+                    saveoutfit: results.rows
+                });
+            } else {
+                res.json({
+                    success: false
+                });
+            }
+        })
+        .catch(error => {
+            console.log(error);
+        });
+});
+
+app.get("/myoutfits");
 
 app.get("/logout", (req, res) => {
     req.session = null;

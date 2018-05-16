@@ -1,6 +1,7 @@
 import React from "react";
 import Swipeable from "react-swipeable";
 import { connect } from "react-redux";
+import { garmentIdx } from "./actions";
 
 /*
 const IMG_1 = `https://unsplash.it/342/249`;
@@ -31,6 +32,8 @@ class CarouselTops extends React.Component {
         } else {
             newIdx = adjustedIdx;
         }
+        //console.log("on swipe tops", newIdx);
+        this.props.dispatch(garmentIdx(newIdx, "tops"));
         this.setState({ imageIdx: newIdx });
     }
 

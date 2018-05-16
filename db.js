@@ -75,7 +75,14 @@ exports.uploadCloset = (imageGar, user_id, category) => {
 
 exports.getCloset = user_id => {
     return db.query(
-        `SELECT user_id, category, imageGar FROM garments WHERE user_id = $1`,
+        `SELECT id, user_id, category, imageGar FROM garments WHERE user_id = $1`,
         [user_id]
+    );
+};
+
+exports.saveOutfit = (user_id, top_id, bottom_id, footwear_id) => {
+    return db.query(
+        `INSERT into outfits (user_id, top_id, bottom_id, footwear_id) VALUES ($1, $2, $3, $4) RETURNING *`,
+        [user_id, top_id, bottom_id, footwear_id]
     );
 };

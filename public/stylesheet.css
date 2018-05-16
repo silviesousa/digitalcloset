@@ -45,6 +45,14 @@ button {
     width: auto;
 }
 
+.iconsOutfit {
+    height: 50px;
+    width: auto;
+    float: right;
+    padding-top: 100px;
+    padding-right: 650px;
+}
+
 .profile,
 .closet,
 .outfits {

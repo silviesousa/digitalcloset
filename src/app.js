@@ -13,7 +13,9 @@ import Upload from "./upload";
 import CarouselTops from "./tops";
 import CarouselBottoms from "./bottoms";
 import CarouselFootwear from "./footwear";
-import { Create } from "./createOutfit";
+import Create from "./createOutfit";
+import { MyOutfits } from "./myOutfits";
+import { UpdateProfile } from "./updateProfile";
 
 import reducer from "./reducer";
 import { createStore, applyMiddleware } from "redux";
@@ -86,6 +88,16 @@ class App extends React.Component {
                                 exact
                                 path="/createoutfit"
                                 component={Create}
+                            />
+                            <Route
+                                exact
+                                path="/myoutfits"
+                                component={MyOutfits}
+                            />
+                            <Route
+                                exact
+                                path="/updateprofile"
+                                component={UpdateProfile}
                             />
                         </div>
                     </div>

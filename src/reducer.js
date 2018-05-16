@@ -1,13 +1,4 @@
 import axios from "./axios";
-/*
-export async function getCloset() {
-    const { data } = await axios.get("/closet");
-    return {
-        type: "CLOSET",
-        closet: data.getCloset
-    };
-}
-*/
 
 export default function reducer(state = {}, action) {
     console.log("reducer", action);
@@ -20,5 +11,32 @@ export default function reducer(state = {}, action) {
             footwear: action.closet.filter(item => item.category == "footwear")
         };
     }
+
+    if (action.type == "GARMENT_IDX") {
+        if (action.category == "tops") {
+            state = {
+                ...state,
+                topsIdx: action.idx
+            };
+        } else if (action.category == "bottoms") {
+            state = {
+                ...state,
+                bottomsIdx: action.idx
+            };
+        } else if (action.category == "footwear") {
+            state = {
+                ...state,
+                footwearIdx: action.idx
+            };
+        }
+    }
+
+    if (action.type == "SAVE_OUTFIT") {
+        state = {
+            ...state,
+            outfit: action.outfit
+        };
+    }
+
     return state;
 }
