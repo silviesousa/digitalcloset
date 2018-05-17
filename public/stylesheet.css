@@ -1,8 +1,12 @@
 h1,
 h2,
-a,
 input {
     font-family: "Quicksand", sans-serif;
+}
+
+a {
+    font-family: "Quicksand", sans-serif;
+    font-size: 20px;
 }
 
 img {

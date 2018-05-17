@@ -45,9 +45,33 @@ export class DropdownProfile extends Component {
                                 this.dropdownMenu = element;
                             }}
                         >
-                            <Link to="/intro">How to use</Link>
-                            <Link to="/updateprofile">Update Profile</Link>
-                            <a href="/logout">Log out</a>
+                            <Link
+                                to="/intro"
+                                style={{
+                                    textDecoration: "none",
+                                    color: "black"
+                                }}
+                            >
+                                How to use
+                            </Link>
+                            <Link
+                                to="/updateprofile"
+                                style={{
+                                    textDecoration: "none",
+                                    color: "black"
+                                }}
+                            >
+                                Update Profile
+                            </Link>
+                            <a
+                                href="/logout"
+                                style={{
+                                    textDecoration: "none",
+                                    color: "black"
+                                }}
+                            >
+                                Log out
+                            </a>
                         </div>
                     ) : null}
                 </div>

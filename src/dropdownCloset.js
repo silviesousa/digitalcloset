@@ -54,9 +54,24 @@ export class DropdownCloset extends Component {
                             this.dropdownMenu = element;
                         }}
                     >
-                        <Link to="/tops">Tops</Link>
-                        <Link to="/bottoms">Bottoms</Link>
-                        <Link to="/footwear">Footwear</Link>
+                        <Link
+                            to="/tops"
+                            style={{ textDecoration: "none", color: "black" }}
+                        >
+                            Tops
+                        </Link>
+                        <Link
+                            to="/bottoms"
+                            style={{ textDecoration: "none", color: "black" }}
+                        >
+                            Bottoms
+                        </Link>
+                        <Link
+                            to="/footwear"
+                            style={{ textDecoration: "none", color: "black" }}
+                        >
+                            Footwear
+                        </Link>
                         <a onClick={this.makeUploaderVisible}>Upload</a>
                         {this.state.uploaderShouldBeVisible && (
                             <Upload

@@ -46,8 +46,24 @@ export class DropdownOutfits extends Component {
                                 this.dropdownMenu = element;
                             }}
                         >
-                            <Link to="/createoutfit">Create Outfit</Link>
-                            <Link to="/myoutfits">My Outfits</Link>
+                            <Link
+                                to="/createoutfit"
+                                style={{
+                                    textDecoration: "none",
+                                    color: "black"
+                                }}
+                            >
+                                Create Outfit
+                            </Link>
+                            <Link
+                                to="/myoutfits"
+                                style={{
+                                    textDecoration: "none",
+                                    color: "black"
+                                }}
+                            >
+                                My Outfits
+                            </Link>
                         </div>
                     ) : null}
                 </div>
