@@ -26,3 +26,14 @@ export async function saveOutfit(outfit) {
         outfit
     };
 }
+
+/*
+export async function showOutfit(outfit) {
+    console.log("show outfit function in actions.js", outfit);
+    await axios.get("/outfits", outfit);
+    return {
+        type: "SHOW_OUTFIT",
+        outfit
+    };
+}
+*/

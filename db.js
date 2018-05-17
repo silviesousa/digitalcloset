@@ -86,3 +86,10 @@ exports.saveOutfit = (user_id, top_id, bottom_id, footwear_id) => {
         [user_id, top_id, bottom_id, footwear_id]
     );
 };
+
+exports.showOutfit = user_id => {
+    return db.query(
+        `SELECT id, top_id, bottom_id, footwear_id from outfits WHERE user_id = $1`,
+        [user_id]
+    );
+};

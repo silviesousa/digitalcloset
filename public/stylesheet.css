@@ -127,3 +127,25 @@ button {
     height: 100px;
     bottom: 0;
 }
+
+.myOutfits {
+    padding-top: 150px;
+}
+
+.gridTops {
+    display: flex;
+    flex-direction: row;
+}
+
+.gridBottoms {
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    height: 300px;
+    width: auto;
+}
+.gridFootwear {
+    display: flex;
+    flex-direction: row;
+    padding: 20px;
+}

@@ -32,11 +32,19 @@ export default function reducer(state = {}, action) {
     }
 
     if (action.type == "SAVE_OUTFIT") {
-        state = {
-            ...state,
-            outfit: action.outfit
-        };
+        if (state.outfit) {
+            console.log("reducer for save outfit");
+            state = {
+                ...state,
+                outfit: state.outfit.concat(action.outfit)
+            };
+        } else {
+            console.log("2nd reducer for save outfit");
+            state = {
+                ...state,
+                outfit: [action.outfit]
+            };
+        }
     }
-
     return state;
 }

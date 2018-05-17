@@ -14,7 +14,8 @@ const {
     getUserInfo,
     uploadCloset,
     getCloset,
-    saveOutfit
+    saveOutfit,
+    showOutfit
 } = require("./db.js");
 const bodyParser = require("body-parser");
 const csurf = require("csurf");
@@ -180,22 +181,25 @@ app.post("/upload", uploader.single("file"), s3.upload, function(req, res) {
 });
 
 app.get("/closet", (req, res) => {
-    getCloset(req.session.userId.id)
-        .then(results => {
-            if (results.rows) {
-                res.json({
-                    success: true,
-                    getcloset: results.rows
-                });
-            } else {
-                res.json({
-                    success: false
-                });
-            }
-        })
-        .catch(error => {
-            console.log(error);
-        });
+    getCloset(req.session.userId.id).then(results => {
+        showOutfit(req.session.userId.id)
+            .then(payload => {
+                if (results.rows) {
+                    res.json({
+                        success: true,
+                        getcloset: results.rows,
+                        outfits: payload.rows
+                    });
+                } else {
+                    res.json({
+                        success: false
+                    });
+                }
+            })
+            .catch(error => {
+                console.log(error);
+            });
+    });
 });
 
 app.post("/createoutfit", (req, res) => {
@@ -227,7 +231,32 @@ app.post("/createoutfit", (req, res) => {
         });
 });
 
-app.get("/myoutfits");
+/*
+app.get("/outfits", (req, res) => {
+    console.log("get route for /outfits", req.session.userId.id, req.body);
+    showOutfit(
+        req.session.userId.id,
+        req.body.topsIdx,
+        req.body.bottomsIdx,
+        req.body.footwearIdx
+    )
+        .then(results => {
+            if (results.rows) {
+                res.json({
+                    success: true
+                    //saveoutfit: results.rows
+                });
+            } else {
+                res.json({
+                    success: false
+                });
+            }
+        })
+        .catch(error => {
+            console.log(error);
+        });
+});
+*/
 
 app.get("/logout", (req, res) => {
     req.session = null;

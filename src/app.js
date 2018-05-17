@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Link } from "react-router-dom";
 import { getCloset } from "./actions";
 import { connect } from "react-redux";
 import Logo from "./logo";
+import Welcome from "./welcome";
 import { Login } from "./login";
 import { DropdownProfile } from "./dropdownProfile";
 import { DropdownCloset } from "./dropdownCloset";
@@ -14,7 +15,7 @@ import CarouselTops from "./tops";
 import CarouselBottoms from "./bottoms";
 import CarouselFootwear from "./footwear";
 import Create from "./createOutfit";
-import { MyOutfits } from "./myOutfits";
+import MyOutfits from "./myOutfits";
 import { UpdateProfile } from "./updateProfile";
 
 import reducer from "./reducer";
@@ -99,6 +100,7 @@ class App extends React.Component {
                                 path="/updateprofile"
                                 component={UpdateProfile}
                             />
+                            <Route exact path="/logout" component={Welcome} />
                         </div>
                     </div>
                 </BrowserRouter>
