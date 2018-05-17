@@ -184,6 +184,7 @@ app.get("/closet", (req, res) => {
     getCloset(req.session.userId.id).then(results => {
         showOutfit(req.session.userId.id)
             .then(payload => {
+                console.log("get closet route", payload);
                 if (results.rows) {
                     res.json({
                         success: true,
@@ -210,11 +211,12 @@ app.post("/createoutfit", (req, res) => {
     );
     saveOutfit(
         req.session.userId.id,
-        req.body.topsIdx,
-        req.body.bottomsIdx,
-        req.body.footwearIdx
+        req.body.top_id,
+        req.body.bottom_id,
+        req.body.footwear_id
     )
         .then(results => {
+            console.log("save outfit was succesful?", req.body);
             if (results.rows) {
                 res.json({
                     success: true,

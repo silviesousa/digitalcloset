@@ -33,7 +33,8 @@ export class MyOutfits extends React.Component {
 
         this.props.tops.filter(top => {
             this.props.outfit.map(obj => {
-                if (obj.topsIdx == top.id) {
+                //console.log("test for tops array", top.id, obj);
+                if (obj.top_id == top.id) {
                     topsArr.push(top);
                 }
             });
@@ -51,7 +52,7 @@ export class MyOutfits extends React.Component {
 
         this.props.bottoms.filter(bottom => {
             this.props.outfit.map(obj => {
-                if (obj.bottomsIdx == bottom.id) {
+                if (obj.bottom_id == bottom.id) {
                     bottomsArr.push(bottom);
                 }
             });
@@ -67,12 +68,17 @@ export class MyOutfits extends React.Component {
 
         this.props.footwear.filter(footw => {
             this.props.outfit.map(obj => {
-                if (obj.footwearIdx == footw.id) {
+                if (obj.footwear_id == footw.id) {
                     footwearArr.push(footw);
                 }
             });
         });
-
+        console.log(
+            "array filter in my outf comp",
+            topsArr,
+            bottomsArr,
+            footwearArr
+        );
         let listOfFootwear = footwearArr.map(footw => {
             return (
                 <div>
@@ -83,7 +89,6 @@ export class MyOutfits extends React.Component {
 
         return (
             <div>
-                <img className="iconsOutfit" src="/dripicons/SVG/trash.svg" />
                 <div className="myOutfits">
                     <div className="gridTops"> {listOfTops}</div>
                     <div className="gridBottoms"> {listOfBottoms}</div>

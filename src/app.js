@@ -6,6 +6,9 @@ import { getCloset } from "./actions";
 import { connect } from "react-redux";
 import Logo from "./logo";
 import Welcome from "./welcome";
+import { Intro } from "./intro";
+//<Route exact path="/" component={Intro} />
+//route / renders intro component fro landing page
 import { Login } from "./login";
 import { DropdownProfile } from "./dropdownProfile";
 import { DropdownCloset } from "./dropdownCloset";
@@ -100,7 +103,7 @@ class App extends React.Component {
                                 path="/updateprofile"
                                 component={UpdateProfile}
                             />
-                            <Route exact path="/logout" component={Welcome} />
+                            <Route exact path="/intro" component={Intro} />
                         </div>
                     </div>
                 </BrowserRouter>

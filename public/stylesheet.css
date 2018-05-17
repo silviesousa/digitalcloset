@@ -9,7 +9,12 @@ img {
     height: 250px;
     width: auto;
 }
-
+/*
+.hangerLogo {
+    height: 250px;
+    width: auto;
+}
+*/
 .logo {
     float: left;
     height: auto;
@@ -34,6 +39,12 @@ img {
     color: dimgrey;
 }
 
+.intro {
+    margin: 0 auto;
+    width: 90%;
+    padding: 120px;
+    text-align: center;
+}
 button {
     width: auto;
     height: 50px;
@@ -46,11 +57,11 @@ button {
 }
 
 .iconsOutfit {
-    height: 50px;
+    height: 30px;
     width: auto;
     float: right;
     padding-top: 100px;
-    padding-right: 650px;
+    padding-right: 150px;
 }
 
 .profile,
@@ -130,6 +141,8 @@ button {
 
 .myOutfits {
     padding-top: 150px;
+    padding-left: 100px;
+    padding-right: 100px;
 }
 
 .gridTops {

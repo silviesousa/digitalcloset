@@ -1,8 +1,8 @@
 import React from "react";
 import axios from "./axios";
 import { Link } from "react-router-dom";
-import { connect } from "react-redux";
-import Swipeable from "react-swipeable";
+//import { connect } from "react-redux";
+//import Swipeable from "react-swipeable";
 
 export class UpdateProfile extends React.Component {
     constructor(props) {

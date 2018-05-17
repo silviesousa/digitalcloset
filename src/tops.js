@@ -20,6 +20,9 @@ class CarouselTops extends React.Component {
         super(props, context);
         this.state = { imageIdx: 0 };
     }
+    componentDidMount() {
+        this.props.dispatch(garmentIdx(0, "tops"));
+    }
 
     onSwiped(direction) {
         const change = direction === RIGHT ? RIGHT : LEFT;

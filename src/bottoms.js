@@ -16,7 +16,9 @@ class CarouselBottoms extends React.Component {
         super(props, context);
         this.state = { imageIdx: 0 };
     }
-
+    componentDidMount() {
+        this.props.dispatch(garmentIdx(0, "bottoms"));
+    }
     onSwiped(direction) {
         const change = direction === RIGHT ? RIGHT : LEFT;
         const adjustedIdx = this.state.imageIdx + Number(change);

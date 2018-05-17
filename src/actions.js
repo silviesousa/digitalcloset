@@ -6,7 +6,8 @@ export async function getCloset(items) {
     console.log("data action", data);
     return {
         type: "GET_CLOSET",
-        closet: data.getcloset
+        closet: data.getcloset,
+        outfit: data.outfits
     };
 }
 

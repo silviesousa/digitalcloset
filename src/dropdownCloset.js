@@ -56,7 +56,7 @@ export class DropdownCloset extends Component {
                     >
                         <Link to="/tops">Tops</Link>
                         <Link to="/bottoms">Bottoms</Link>
-                        <Link to="footwear">Footwear</Link>
+                        <Link to="/footwear">Footwear</Link>
                         <a onClick={this.makeUploaderVisible}>Upload</a>
                         {this.state.uploaderShouldBeVisible && (
                             <Upload

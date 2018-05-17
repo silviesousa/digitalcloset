@@ -18,9 +18,9 @@ export class Create extends React.Component {
     save() {
         console.log("click for save outfit", this.props);
         let outfit = {
-            topsIdx: this.props.tops[this.props.topsIdx].id,
-            bottomsIdx: this.props.bottoms[this.props.bottomsIdx].id,
-            footwearIdx: this.props.footwear[this.props.footwearIdx].id
+            top_id: this.props.tops[this.props.topsIdx].id,
+            bottom_id: this.props.bottoms[this.props.bottomsIdx].id,
+            footwear_id: this.props.footwear[this.props.footwearIdx].id
         };
         this.props.dispatch(saveOutfit(outfit));
     }

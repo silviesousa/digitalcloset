@@ -8,7 +8,8 @@ export default function reducer(state = {}, action) {
             ...state,
             tops: action.closet.filter(item => item.category == "tops"),
             bottoms: action.closet.filter(item => item.category == "bottoms"),
-            footwear: action.closet.filter(item => item.category == "footwear")
+            footwear: action.closet.filter(item => item.category == "footwear"),
+            outfit: action.outfit
         };
     }
 
