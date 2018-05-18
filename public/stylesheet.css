@@ -49,6 +49,28 @@ img {
     padding: 120px;
     text-align: center;
 }
+
+.update {
+    display: flex;
+    flex-direction: row;
+}
+
+.updateProfile {
+    margin: 0 auto;
+    padding-top: 150px;
+    text-align: center;
+}
+
+.updateProfilePic {
+    margin: 0 auto;
+    padding-top: 150px;
+    text-align: center;
+}
+
+.iconsProfile {
+    width: 150px;
+}
+
 button {
     width: auto;
     height: 50px;
@@ -56,7 +78,7 @@ button {
 }
 
 .icons {
-    height: 30px;
+    height: 40px;
     width: auto;
 }
 
@@ -137,10 +159,8 @@ button {
 }
 
 #CarouselFootwear {
-    padding-top: 200px;
+    padding-top: 170px;
     width: auto;
-    height: 100px;
-    bottom: 0;
 }
 
 .myOutfits {
@@ -150,19 +170,25 @@ button {
 }
 
 .gridTops {
+    margin: 0 auto;
+    max-width: 90%;
     display: flex;
     flex-direction: row;
 }
 
+.topsOutfit {
+    height: 400px;
+}
+
 .gridBottoms {
+    margin: 0 auto;
+    max-width: 90%;
     display: flex;
     flex-direction: row;
-    padding: 10px;
-    height: 300px;
-    width: auto;
 }
 .gridFootwear {
+    margin: 0 auto;
+    max-width: 90%;
     display: flex;
     flex-direction: row;
-    padding: 20px;
 }

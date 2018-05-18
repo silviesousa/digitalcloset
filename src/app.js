@@ -31,6 +31,7 @@ class App extends React.Component {
         this.state = {};
     }
     componentDidMount() {
+        console.log("", "comp did mount app");
         axios.get("/user").then(resp => {
             this.setState({
                 id: resp.data.id,
@@ -104,6 +105,7 @@ class App extends React.Component {
                                 component={UpdateProfile}
                             />
                             <Route exact path="/intro" component={Intro} />
+                            <Route exact path="/" component={Intro} />
                         </div>
                     </div>
                 </BrowserRouter>

@@ -76,10 +76,17 @@ export class DropdownCloset extends Component {
                         {this.state.uploaderShouldBeVisible && (
                             <Upload
                                 changeImage={img =>
-                                    this.setState({
-                                        imageGar: img,
-                                        uploaderShouldBeVisible: false
-                                    })
+                                    this.setState(
+                                        {
+                                            imageGar: img,
+                                            uploaderShouldBeVisible: false
+                                        },
+                                        () =>
+                                            console.log(
+                                                "changeimage dropd closet",
+                                                this.state
+                                            )
+                                    )
                                 }
                             />
                         )}

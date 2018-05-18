@@ -167,7 +167,7 @@ app.post("/upload", uploader.single("file"), s3.upload, function(req, res) {
         console.log("success", req.file, req.body);
         const img = config.s3Url + req.file.filename;
         uploadCloset(img, req.session.userId.id, req.body.category).then(
-            img => {
+            results => {
                 res.json({
                     success: true,
                     imageGar: img

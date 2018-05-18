@@ -31,11 +31,11 @@ export class MyOutfits extends React.Component {
         var bottomsArr = [];
         var footwearArr = [];
 
-        this.props.tops.filter(top => {
-            this.props.outfit.map(obj => {
+        this.props.outfit.filter(item => {
+            this.props.tops.map(obj => {
                 //console.log("test for tops array", top.id, obj);
-                if (obj.top_id == top.id) {
-                    topsArr.push(top);
+                if (obj.id == item.top_id) {
+                    topsArr.push(obj);
                 }
             });
         });
@@ -50,13 +50,16 @@ export class MyOutfits extends React.Component {
             );
         });
 
-        this.props.bottoms.filter(bottom => {
-            this.props.outfit.map(obj => {
-                if (obj.bottom_id == bottom.id) {
-                    bottomsArr.push(bottom);
+        this.props.outfit.filter(item => {
+            this.props.bottoms.map(obj => {
+                console.log("log for bottoms", item, obj);
+                if (obj.id == item.bottom_id) {
+                    bottomsArr.push(obj);
                 }
             });
         });
+        console.log("log for this.props.bottoms", this.props.bottoms);
+        console.log("log for bottoms arr", bottomsArr);
 
         let listOfBottoms = bottomsArr.map(bottom => {
             return (
@@ -66,10 +69,10 @@ export class MyOutfits extends React.Component {
             );
         });
 
-        this.props.footwear.filter(footw => {
-            this.props.outfit.map(obj => {
-                if (obj.footwear_id == footw.id) {
-                    footwearArr.push(footw);
+        this.props.outfit.filter(item => {
+            this.props.footwear.map(obj => {
+                if (obj.id == item.footwear_id) {
+                    footwearArr.push(obj);
                 }
             });
         });
@@ -90,7 +93,7 @@ export class MyOutfits extends React.Component {
         return (
             <div>
                 <div className="myOutfits">
-                    <div className="gridTops"> {listOfTops}</div>
+                    <div className="gridTops">{listOfTops}</div>
                     <div className="gridBottoms"> {listOfBottoms}</div>
                     <div className="gridFootwear"> {listOfFootwear}</div>
                 </div>

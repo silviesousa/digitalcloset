@@ -26,7 +26,8 @@ export default class Upload extends React.Component {
         formData.append("category", this.state.category);
         axios.post("/upload", formData).then(resp => {
             if (resp.data.success) {
-                this.props.changeImage(resp.data.image);
+                console.log("post route upload", resp.data.imageGar);
+                this.props.changeImage(resp.data.imageGar);
                 this.fileToUpload = {};
             } else {
                 this.setState({
@@ -45,6 +46,7 @@ export default class Upload extends React.Component {
                     <option value="bottoms">Bottoms</option>
                     <option value="footwear">Footwear</option>
                 </select>
+                <br />
                 <button onClick={this.submit}>Upload</button>
             </div>
         );
